@@ -1,0 +1,34 @@
+﻿<style>
+    * {
+        background-color: #f1ffb3;
+    }
+    body {
+        font-family: 'Cosmic';
+        font-style: italic;
+        font-size: 18px;
+    }
+    h1 {
+        font-family: 'Cosmic';
+        font-size: 60px;
+        font-weight: 600;
+    }
+    table {
+        table-layout: fixed;
+    }
+    [class='unit'] {
+        overflow: hidden;
+        height: 60px;
+        padding: 5px 15px 0 15px;
+        border-radius: 40px;
+    }
+    a {
+        font-size: 22;
+    }
+    footer {
+        align: left;
+        font-size: 20px;
+        bottom:0;
+        left:0;
+        width:100%;
+    }
+</style>
