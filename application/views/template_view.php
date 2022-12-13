@@ -8,11 +8,12 @@
         rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
         crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="/css/style.css" />
+        <title>ТабуретычЪ</title>
     </head>
     <body>
         <head>
             <div class="col" align="center">
-                <h1 style="font-size: 70px; color: brown;">ТабуретычЪ<img src="/images/label.jpg"></h1>
+                <h1 class="col-4" style="font-size: 70px; color: brown; border: 3px double brown; border-radius: 40px;">ТабуретычЪ<img src="/images/label.jpg"></h1>
             </div>
         </head>
         <main style="width: 100%;">
@@ -22,7 +23,7 @@
                 </div>
             </div>
         </main>
-            <div align='left'>
+            <div align='left' style="padding: 20px 20px;">
                 <h3>Контакты</h3>
                 <ul class="list">
                     <li>telegram: #sanatolp</li>
