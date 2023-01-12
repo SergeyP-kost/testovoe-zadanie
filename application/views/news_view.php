@@ -1,5 +1,8 @@
 <h1 align='center'>Новости</h1>
 
+<a href="/news/create"><h5 style="margin-right: 20px; float:right">добавить новость</h5></a>
+
+
 <table class="col-12">
     <tr>
         <?php

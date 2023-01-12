@@ -27,13 +27,13 @@ if (isset($data)){ ?>
 <?php }
 else{ ?>
     <form action="/feedback/feedback" method="post">
-    <table class="col-6">
-        <tr>
-        <tr><td><input style="border:3px double greenyellow;" class="text" placeholder="Ваше имя" name="name"><em> *</em></td></tr>
-        <tr><td><input style="border:3px double aquamarine" class="email" placeholder="Ваша почта" name="email"><em> *</em></td></tr>
-        <tr><td><textarea style="border:3px double aquamarine" name="message" placeholder="Текст cooбщения"></textarea></td></tr>
-        <tr><td><p><input type="submit" value="Отправить" style="margin: 0.2% 0 0 0"></p></td></tr>
-        </tr>
-</table>
+        <table class="col-6">
+            <tr>
+            <tr><td><input style="border:3px double greenyellow;" class="text" placeholder="Ваше имя" name="name"><em> *</em></td></tr>
+            <tr><td><input style="border:3px double aquamarine" class="email" placeholder="Ваша почта" name="email"><em> *</em></td></tr>
+            <tr><td><textarea style="border:3px double aquamarine" name="message" placeholder="Текст cooбщения"></textarea></td></tr>
+            <tr><td><p><input type="submit" value="Отправить" style="margin: 0.2% 0 0 0"></p></td></tr>
+            </tr>
+        </table>
     </form>
 <?php } ?>
