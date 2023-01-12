@@ -8,7 +8,7 @@ foreach( $data as $row ){
 
 ?>
 <h1 align='center'><?php echo 'Подробнее по теме: '. $name_news?></h1>
-<a href="/news"><h4 style="margin-right: 20px; float:right">к списку новостей</h4></a>
+<a href="/news"><h5 style="margin-right: 20px; float:right">назад к списку новостей</h5></a>
 
 <table class="col-12">
     <tr>
