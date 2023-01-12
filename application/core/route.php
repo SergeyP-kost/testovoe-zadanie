@@ -6,7 +6,7 @@ class Route
 	static function start()
 	{
 		$controller_name = 'Main';
-		$action_name = 'index';
+		$action_name = '';
 		
 		$routes = explode('/', $_SERVER['REQUEST_URI']);
 
@@ -17,11 +17,12 @@ class Route
 
 		if ( !empty($routes[2]) )
 		{
-			$action_name = $routes[2];
+			$rex = '/[a-z]+/';
+			preg_match($rex, $routes[2], $arr);
+			$action_name = $arr[0];
 		}
 
 		$model_name = 'Model_'.$controller_name;
-		$controller_name = 'Controller_'.$controller_name;
 		$action_name = 'action_'.$action_name;
 
 		$model_file = strtolower($model_name).'.php';
@@ -37,10 +38,10 @@ class Route
 		{
 			include "application/controllers/".$controller_file;
 		}
-		else
-		{
-			Route::ErrorPage404();
-		}
+		// else
+		// {
+		// 	Route::ErrorPage404();
+		// }
 		
 		$controller = new $controller_name;
 		$action = $action_name;
@@ -49,10 +50,10 @@ class Route
 		{
 			$controller->$action();
 		}
-		else
-		{
-			Route::ErrorPage404();
-		}
+		// else
+		// {
+		// 	Route::ErrorPage404();
+		// }
 	
 	}
 

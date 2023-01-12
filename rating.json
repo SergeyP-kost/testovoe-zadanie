@@ -1,49 +1,49 @@
 [
-{"type":"header","version":"5.2.0","comment":"Export to JSON plugin for PHPMyAdmin"},
-{"type":"database","name":"rating"},
-{"type":"table","name":"Collection_name","database":"rating","data":
+("type":"header","version":"5.2.0","comment":"Export to JSON plugin for PHPMyAdmin"),
+("type":"database","rating"),
+("type":"table","Collection_name","database":"rating","data":
 [
-{"collect_id":"1","collect_name":"Квадратная"},
-{"collect_id":"2","collect_name":"Круглая"},
-{"collect_id":"3","collect_name":"Овальная"},
-{"collect_id":"4","collect_name":"Прямоугольная"},
-{"collect_id":"5","collect_name":"Треугольная"},
-{"collect_id":"6","collect_name":"Фигурная"}
+("collect_id":"1","collect_name":"Квадратная"),
+("collect_id":"2","collect_name":"Круглая"),
+("collect_id":"3","collect_name":"Овальная"),
+("collect_id":"4","collect_name":"Прямоугольная"),
+("collect_id":"5","collect_name":"Треугольная"),
+("collect_id":"6","collect_name":"Фигурная")
 ]
-}
-,{"type":"table","name":"Goods","database":"rating","data":
+)
+,("type":"table","Goods","database":"rating","data":
 [
-{"id":"1","name":"Табурет Nika ТЭ2\/С","price":"521","collection":"1"},
-{"id":"2","name":"Табурет Nika ТЭ2\/Б","price":"462","collection":"2"},
-{"id":"3","name":"Табурет Nika ТЭ2\/СК","price":"521","collection":"2"},
-{"id":"4","name":"Табурет Nika Т3\/Л","price":"621","collection":"3"},
-{"id":"5","name":"Табурет Ника Фабрик-2","price":"856","collection":"3"},
-{"id":"6","name":"Табурет складной Nika ТБСК2\/3","price":"1001","collection":"5"},
-{"id":"7","name":"Табурет СоюзРегионПоставка Дора","price":"1500","collection":"2"},
-{"id":"8","name":"Табурет KETT-UP ECO ODDVAR","price":"2100","collection":"6"},
-{"id":"9","name":"Табурет со ступенькой Volf","price":"680","collection":"6"},
-{"id":"10","name":"Табурет BOGACHO Марта-2","price":"16240","collection":"1"},
-{"id":"11","name":"Табурет BOGACHO Марта-2","price":"16240","collection":"1"},
-{"id":"12","name":"Табурет BOGACHO Марта-9","price":"1624","collection":"4"},
-{"id":"13","name":"Табурет BOGACHO Марта-12","price":"6240","collection":"4"},
-{"id":"15","name":"Табурет BOGACHO Марта-6","price":"2653","collection":"1"},
-{"id":"16","name":"Табурет BOGACHO Март-15","price":"757","collection":"4"},
-{"id":"17","name":"Табурет BOGACHO Карта-2","price":"222","collection":"4"},
-{"id":"18","name":"Табурет BOGACHO Парта-2","price":"868","collection":"5"},
-{"id":"19","name":"Табурет BOGACHO Дарта-2","price":"8575","collection":"6"},
-{"id":"20","name":"Табурет BOGACHO Март-2","price":"456","collection":"5"},
-{"id":"21","name":"Табурет BOGACHO Кп-02","price":"1212","collection":"5"},
-{"id":"22","name":"Табурет BOGACHO Нр-2","price":"677","collection":"5"},
-{"id":"23","name":"Табурет BOGACHO Ло-7","price":"24","collection":"5"},
-{"id":"24","name":"Табурет BOGACHO 2","price":"588","collection":"3"},
-{"id":"25","name":"Табурет BOGACHO 235","price":"1221","collection":"5"},
-{"id":"26","name":"Табурет BOGACHO ДДД","price":"324","collection":"3"},
-{"id":"27","name":"Табурет Реал Береза белая","price":"2890","collection":"1"},
-{"id":"28","name":"Табурет Реал Бук","price":"3590","collection":"5"},
-{"id":"29","name":"KETT-UP ECO BRUNO деревянный","price":"8600","collection":"5"},
-{"id":"30","name":"NABORTABURRAFF","price":"1690","collection":"2"},
-{"id":"31","name":"Табурет Венский мягкий Red&Black","price":"4450","collection":"3"},
-{"id":"32","name":"Традат-45","price":"6150","collection":"6"}
+("1","Табурет Nika ТЭ2\/С","521","1"),
+("2","Табурет Nika ТЭ2\/Б","462","2"),
+("3","Табурет Nika ТЭ2\/СК","521","2"),
+("4","Табурет Nika Т3\/Л","621","3"),
+("5","Табурет Ника Фабрик-2","856","3"),
+("6","Табурет складной Nika ТБСК2\/3","1001","5"),
+("7","Табурет СоюзРегионПоставка Дора","1500","2"),
+("8","Табурет KETT-UP ECO ODDVAR","2100","6"),
+("9","Табурет со ступенькой Volf","680","6"),
+("10","Табурет BOGACHO Марта-2","16240","1"),
+("11","Табурет BOGACHO Марта-2","16240","1"),
+("12","Табурет BOGACHO Марта-9","1624","4"),
+("13","Табурет BOGACHO Марта-12","6240","4"),
+("15","Табурет BOGACHO Марта-6","2653","1"),
+("16","Табурет BOGACHO Март-15","757","4"),
+("17","Табурет BOGACHO Карта-2","222","4"),
+("18","Табурет BOGACHO Парта-2","868","5"),
+("19","Табурет BOGACHO Дарта-2","8575","6"),
+("20","Табурет BOGACHO Март-2","456","5"),
+("21","Табурет BOGACHO Кп-02","1212","5"),
+("22","Табурет BOGACHO Нр-2","677","5"),
+("23","Табурет BOGACHO Ло-7","24","5"),
+("24","Табурет BOGACHO 2","588","3"),
+("25","Табурет BOGACHO 235","1221","5"),
+("26","Табурет BOGACHO ДДД","324","3"),
+("27","Табурет Реал Береза белая","2890","1"),
+("32","Традат-45","6150","6")
+("28","Табурет Реал Бук","3590","5"),
+("29","KETT-UP ECO BRUNO деревянный","8600","5"),
+("30","NABORTABURRAFF","1690","2"),
+("31","Табурет Венский мягкий Red&Black","4450","3"),
 ]
-}
+)
 ]

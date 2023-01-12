@@ -13,14 +13,14 @@
     <body>
         <head>
             <div class="col" align="center">
-                <h1 class="col-4" style="font-size: 70px; color: brown; border: 3px double brown; border-radius: 40px;">ТабуретычЪ<img src="/images/label.jpg"></h1>
+                <h1 class="col-4" style="font-size: 70px; color: brown; border: 3px double brown; border-radius: 40px; margin-top: 10px;">ТабуретычЪ<a href="/"><img src="/images/label.jpg"></a></h1>
             </div>
         </head>
-        <main style="width: 100%;">
+        <main>
             <div class="container">
                 <div id="content">
-                    <?php include 'application/views/'.$content_view; ?>
-                </div>
+                        <?php include 'application/views/'.$content_view; ?>
+				</div>
             </div>
         </main>
             <div align='left' style="padding: 20px 20px;">
@@ -29,11 +29,12 @@
                     <li>telegram: #sanatolp</li>
                     <li>phone: +7 (910) 804-64-33</li>
                     <li>email: sergeyp.sp@yandex.ru</li>
+                    <li><a href="/feedback">Обращение в службу поддержки</a></li>
+                    <li><a href="/news">Новости</a></li>
                 </ul>
             </div>
-        
         <footer align='center'>
-            <a href="/">Главная</a> &copy; <?php echo date("Y");?></a>
+            <a href="/">Главная</a> &copy; <?php echo date("Y");?></a> 
         </footer>
     </body>
 </html>

@@ -2,13 +2,16 @@
     * {
         background-color: #f1ffb3;
     }
+    #content {
+        font-family: 'Cosmic';
+        font-style: italic;
+    }
     body {
         font-family: 'Cosmic';
         font-style: italic;
         font-size: 18px;
     }
     h1 {
-        font-family: 'Cosmic';
         font-size: 60px;
         font-weight: 600;
     }
@@ -25,4 +28,23 @@
         font-size: 20px;
         width:100%;
     }
+    form {
+        margin: 2%;
+    }
+    em {
+        color: red;
+    }
+    input, textarea {
+        width: 60%;
+        font-size: 16px;
+        padding: 6px 0 4px 10px;
+        background: #F6F6f6;
+        border-radius: 8px;
+        font-family: 'Cosmic';
+        font-style: italic;
+    }
+    input:focus, textarea:focus{
+        outline:none;
+    }
+
 </style>
