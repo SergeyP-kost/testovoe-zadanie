@@ -24,7 +24,7 @@ class Feedback extends Controller
         else{
 
             $error = true;
-            $name = 'Имя отсутствует.';
+            $name = 'Введите имя.';
         }
 
         $rex = '/^(?:[a-z0-9]+(?:[-_.]?[a-z0-9]+)?@[a-z0-9_.-]+(?:\.?[a-z0-9]+)?\.[a-z]{2,5})$/i';
