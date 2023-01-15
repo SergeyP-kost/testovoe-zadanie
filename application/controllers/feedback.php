@@ -65,8 +65,8 @@ class Feedback extends Controller
     {
         $result = [];
         require_once 'application/core/dbconnection.php';
-        require_once 'application/models/model_main.php';
-        $this->model = new Model_Main();
+        require_once 'application/models/model_products.php';
+        $this->model = new Model_Products();
 		$data = $this->model->get_item($link, $item);
         foreach($data as $row) {
             $result = array("name"=>$row["name"], "price"=>$row["price"], "name_collection"=>$row["name_collection"]);

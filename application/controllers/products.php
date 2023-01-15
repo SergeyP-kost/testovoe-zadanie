@@ -1,11 +1,11 @@
 <?php
 
-class Main extends Controller
+class Products extends Controller
 {
 
 	function __construct()
 	{
-		$this->model = new Model_Main();
+		$this->model = new Model_Products();
 		$this->view = new View();
 	}
 	
@@ -19,15 +19,15 @@ class Main extends Controller
                 $result[$row['name_collection']][] = array($row['id'], $row['name'], $row['price']);
             }
 
-		$this->view->generate('main_view.php', 'template_view.php', $result);
+		$this->view->generate('products_view.php', 'template_view.php', $result);
 	}
 
-	function action_card()
+	function action_card_product()
 	{
 		require_once 'application/core/dbconnection.php';
 		$item = $_GET['index'];
 		$data = $this->model->get_item($link, $item);	
-		$this->view->generate('card_view.php', 'template_view.php', $data);
+		$this->view->generate('card_product_view.php', 'template_view.php', $data);
 	}
 
 }

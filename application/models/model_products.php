@@ -1,7 +1,7 @@
 <?php
 
 
-class Model_Main extends Model
+class Model_Products extends Model
 {
     
     public function get_list($db)

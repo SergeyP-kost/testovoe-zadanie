@@ -5,7 +5,7 @@ class Route
 
 	static function start()
 	{
-		$controller_name = 'Main';
+		$controller_name = 'Products';
 		$action_name = 'index';
 
 		$URIParts = parse_url($_SERVER['REQUEST_URI']);
@@ -16,7 +16,7 @@ class Route
 		}
 
 		if ( !empty($routes[2]) ) {
-			$rex = '/[a-z]+/';
+			$rex = '/[a-z_]+/';
 			preg_match($rex, $routes[2], $arr);
 			$action_name = $arr[0];
 		}
