@@ -8,7 +8,7 @@
         <?php
 
             foreach($data as $key => $value) {
-                echo "<tr><td class='unit' style=\"background-color: greenyellow\">Тема: <a href='/news/?index=$key'>$value[0]</a></td></tr>";
+                echo "<tr><td class='unit' style=\"background-color: greenyellow\">Тема: <a href='/news/card/?index=$key'>$value[0]</a></td></tr>";
                 echo "<tr><td class='unit' style=\"background-color: aquamarine\">Дата публикации: $value[2]</td></tr>";
             }   
         ?>

@@ -15,12 +15,12 @@
                 foreach($value as $i){
                     if ($cnt % 3 == 0){
                         echo "<td class='unit' style=\"background-color: aquamarine\">
-                        Название: <a href=main/?index=$i[0]> $i[1] </a> Цена: $i[2] руб.</td>";
+                        Название: <a href=\"/main/card/?index=$i[0]\"> $i[1] </a> Цена: $i[2] руб.</td>";
                         echo '</tr><tr>';
                         $cnt = 1;
                     }
                     echo "<td class='unit' style=\"background-color: aquamarine\">
-                    Название: <a href=main/?index=$i[0]> $i[1] </a> Цена: $i[2] руб.</td>";
+                    Название: <a href=\"/main/card/?index=$i[0]\"> $i[1] </a> Цена: $i[2] руб.</td>";
                     $cnt++;
                 }
             }   

@@ -1,54 +1,110 @@
 <?php
 
+
 class Feedback extends Controller 
 {
 
     function __construct()
 	{
-        $this->view = new View();
+		$this->view = new View();
 	}
 
-    function action_(){
 
-        $this->view->generate('feedback_view.php', 'template_view.php');
+    function action_index()
+	{
+        $data = [];
+
+        if(!empty($_POST)) {
+            
+            $errors = $this->validate_form_feedback();
+
+            if (empty($errors)) {
+    
+                $file_feedback = fopen("feedback.txt", 'a') or die("не удалось открыть файл");
+
+                fwrite($file_feedback, 'Дата: '.date('d.m.Y'). PHP_EOL);
+
+                foreach($_POST as $key => $value) {
+
+                    fwrite($file_feedback, $key.': '.$value. PHP_EOL);
+                }
+
+                if (!empty($_POST["item"]) && isset($_POST["item"])) {
+
+                    $result = $this->get_product_data($_POST["item"]);
+
+                    foreach($result as $key => $value) {
+
+                    fwrite($file_feedback, $key.': '.$value. PHP_EOL);
+                    }
+
+                }
+
+                echo 'Успешная запись!';
+
+                fclose($file_feedback);
+
+                return $this->view->generate('feedback_write.php', 'template_view.php', $_POST);
+
+            }
+
+            $data["errors"] =  $errors;
+        }
+
+        $data["name"] = $_POST["name"] ?? '';
+        $data["email"] = $_POST["email"] ?? '';
+        $data["message"] = $_POST["message"] ?? '';
+        $data["item"] = $_GET["product_id"] ?? ''
+;
+        $this->view->generate('feedback_view.php', 'template_view.php', $data);
+
+    } 
+
+
+    function get_product_data(int $item): array
+    {
+        $result = [];
+        require_once 'application/core/dbconnection.php';
+        require_once 'application/models/model_main.php';
+        $this->model = new Model_Main();
+		$data = $this->model->get_item($link, $item);
+        foreach($data as $row) {
+            $result = array("name"=>$row["name"], "price"=>$row["price"], "name_collection"=>$row["name_collection"]);
+        }
+        return $result;
     }
 
-    function action_feedback()
-	{
-        $error = false;
 
-        if(isset($_POST["name"]) and !empty($name)){
+    function validate_form_feedback(): array
+    {
+
+        $message_errors = [];
+        
+        if(!empty($_POST["name"])) {
 
                 $name = $_POST["name"];
-        }
-        else{
+        } else{
 
-            $error = true;
-            $name = 'Введите имя.';
+            $message_errors["name"] = 'Введите имя.';
         }
 
         $rex = '/^(?:[a-z0-9]+(?:[-_.]?[a-z0-9]+)?@[a-z0-9_.-]+(?:\.?[a-z0-9]+)?\.[a-z]{2,5})$/i';
 
-        if(isset($_POST["email"]) and preg_match($rex, $_POST["email"])){
+        if(preg_match($rex, $_POST["email"])) {
         
             $email = $_POST["email"];
+        } else{
+  
+            $message_errors["email"] = 'Некорректно введен адрес электронной почты.';
         }
-        else{
-            $error = true;
-            $email = 'Некорректно введен адрес электронной почты.';
-        }
-        if(isset($_POST["message"]) and strlen($_POST["message"]) > 2){
+        if(strlen($_POST["message"]) > 2) {
         
             $message = $_POST["message"];
-        }
-        else{
+        } else{
 
-            $error = true;
-            $message = 'Слишком короткий текст сообщения.';
+            $message_errors["message"] = 'Слишком короткий текст сообщения.';
         }
-        
-		$data = array("name"=>$name, "email"=>$email, "message"=>$message, "error"=>$error);
 
-		$this->view->generate('feedback_view.php', 'template_view.php', $data);
-	}
+        return $message_errors;
+    }
 }

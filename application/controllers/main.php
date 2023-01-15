@@ -9,7 +9,7 @@ class Main extends Controller
 		$this->view = new View();
 	}
 	
-	function action_()
+	function action_index()
 	{
 		require_once 'application/core/dbconnection.php';
 		$data = $this->model->get_list($link);	
@@ -22,11 +22,11 @@ class Main extends Controller
 		$this->view->generate('main_view.php', 'template_view.php', $result);
 	}
 
-	function action_index()
+	function action_card()
 	{
 		require_once 'application/core/dbconnection.php';
 		$item = $_GET['index'];
-		$data = $this->model->get_item($link, $item);		
+		$data = $this->model->get_item($link, $item);	
 		$this->view->generate('card_view.php', 'template_view.php', $data);
 	}
 
