@@ -1,0 +1,31 @@
+Дата: 16.01.2023
+name: fgugu
+email: cbc@gh.bb
+message: gdgdg
+item: 27
+name: Табурет Реал Береза белая
+price: 2890
+name_collection: Квадратная
+Дата: 16.01.2023
+name: fgugu
+email: cbc@gh.bb
+message: gdgdg
+item: 27
+Дата: 16.01.2023
+name: fgugu
+email: cbc@gh.bb
+message: gdgdg
+item: 27
+Дата: 16.01.2023
+name: fgugu
+email: cbc@gh.bb
+message: gdgdg
+item: 27
+Дата: 16.01.2023
+name: fgugu
+email: cbc@gh.bb
+message: gdgdg
+item: 27
+name: Табурет Реал Береза белая
+price: 2890
+name_collection: Квадратная

@@ -11,23 +11,60 @@ class Products extends Controller
 	
 	function action_index()
 	{
-		require_once 'application/core/dbconnection.php';
-		$data = $this->model->get_list($link);	
-		$result = array();
+		$result=$this->get_data_product();
+		$data = [];
 
-            while($row = mysqli_fetch_array($data)){
-                $result[$row['name_collection']][] = array($row['id'], $row['name'], $row['price']);
-            }
+		while($row = mysqli_fetch_array($result)) {
 
-		$this->view->generate('products_view.php', 'template_view.php', $result);
+			$data[$row['name_collection']][] = array($row['id'], $row['name'], $row['price']);
+		}
+
+		$this->view->generate('products_view.php', 'template_view.php', $data);
 	}
 
 	function action_card_product()
 	{
-		require_once 'application/core/dbconnection.php';
-		$item = $_GET['index'];
-		$data = $this->model->get_item($link, $item);	
+		$product_id = $_GET['product_id'];
+		$data=$this->get_data_product($product_id);
+		
+		if (!isset($_SESSION['history'])) {
+
+			$_SESSION['history'] = [];
+		} 
+
+		// Сохранение истории просмотра.
+
+		if (count($_SESSION['history']) < 4) {
+
+			array_push($_SESSION['history'], $data["product_id"]);
+
+		} else {
+
+			array_shift($_SESSION['history']);
+		}
+		
+		foreach ($_SESSION['history'] as $row) {
+
+			$data["history"][] = $this->get_data_product($row);
+		}
+
+		$data['flag'] = 'card';
+
 		$this->view->generate('card_product_view.php', 'template_view.php', $data);
+
+	}
+
+	function get_data_product(int $item=null)
+	{
+		require 'application/core/dbconnection.php';
+		
+		if (is_null($item)) {
+
+			return $this->model->get_list($link);	
+		} else {
+
+			return $this->model->get_item($link, $item);
+		}
 	}
 
 }
