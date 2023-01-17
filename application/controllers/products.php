@@ -34,14 +34,13 @@ class Products extends Controller
 
 		// Сохранение истории просмотра.
 
-		if (count($_SESSION['history']) < 4) {
+		if (count($_SESSION['history']) > 4) {
 
-			array_push($_SESSION['history'], $data["product_id"]);
+			array_shift($_SESSION['history']);		
 
-		} else {
-
-			array_shift($_SESSION['history']);
-		}
+		} 
+		
+		array_push($_SESSION['history'], $data["product_id"]);
 		
 		foreach ($_SESSION['history'] as $row) {
 
