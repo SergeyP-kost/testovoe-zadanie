@@ -18,7 +18,7 @@ class News extends Controller
                 $result[$row['id_news']] = array($row['name_news'], $row['text_news'], $row['date_news']);
             }
 
-		$this->view->generate('news_view.php', 'template_view.php', $result);
+		$this->view->generate('news_view.php', $result);
 	}
 
     function action_card()
@@ -29,7 +29,7 @@ class News extends Controller
 		foreach( $data as $row ) {
 			$data = array("name" => $row['name_news'], "text" => $row['text_news'], "date"=>$row['date_news']);
 		}	
-		$this->view->generate('news_card_view.php', 'template_view.php', $data);
+		$this->view->generate('news_card_view.php', $data);
 	}
 
 	function action_create()
@@ -40,7 +40,7 @@ class News extends Controller
 			$created = array("name" => $_POST['name'], "text" => $_POST['text'], "date"=>date('Y/m/d'));
 			$this->view->generate('news_card_view.php', 'template_view.php', $this->model->create($link, $created));
 		} else {
-			$this->view->generate('news_create_view.php', 'template_view.php');
+			$this->view->generate('news_create_view.php');
 		}
 	}
 }

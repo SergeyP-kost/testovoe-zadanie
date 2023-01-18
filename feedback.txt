@@ -1,31 +1,18 @@
-Дата: 16.01.2023
-name: fgugu
-email: cbc@gh.bb
-message: gdgdg
-item: 27
-name: Табурет Реал Береза белая
-price: 2890
+Дата: 18.01.2023
+name: Arseniy
+email: sane@yandex.ru
+message: Привет
+product_id: 10
+id: 10
+name: Табурет BOGACHO Марта-2
 name_collection: Квадратная
-Дата: 16.01.2023
-name: fgugu
-email: cbc@gh.bb
-message: gdgdg
-item: 27
-Дата: 16.01.2023
-name: fgugu
-email: cbc@gh.bb
-message: gdgdg
-item: 27
-Дата: 16.01.2023
-name: fgugu
-email: cbc@gh.bb
-message: gdgdg
-item: 27
-Дата: 16.01.2023
-name: fgugu
-email: cbc@gh.bb
-message: gdgdg
-item: 27
-name: Табурет Реал Береза белая
-price: 2890
+price: 16240
+Дата: 18.01.2023
+name: Arseniy
+email: sane@yandex.ru
+message: Привет
+product_id: 10
+product_id: 10
+name: Табурет BOGACHO Марта-2
 name_collection: Квадратная
+price: 16240

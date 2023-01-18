@@ -4,29 +4,53 @@ class Products extends Controller
 {
 
 	function __construct()
-	{
+	{ 
 		$this->model = new Model_Products();
 		$this->view = new View();
 	}
 	
 	function action_index()
 	{
-		$result=$this->get_data_product();
-		$data = [];
+		
+		$data = $this->model->get_list();
 
-		while($row = mysqli_fetch_array($result)) {
+		$result = [];
 
-			$data[$row['name_collection']][] = array($row['id'], $row['name'], $row['price']);
+        foreach ($data as $row) {
+			
+			$html = $this->view->generate('product_small_card.php', $row, $return = true);
+
+			$result[$row['id_collection']][$row['id']] = array(
+				'name_collection' => $row['name_collection'],
+				'id' => $row['id'],
+				'name' => $row['name'],	
+				'price' => $row['price'],
+				'html' => $html
+			);
+
 		}
 
-		$this->view->generate('products_view.php', 'template_view.php', $data);
+		$this->view->generate('product_index.php', $result);
 	}
 
 	function action_card_product()
 	{
 		$product_id = $_GET['product_id'];
-		$data=$this->get_data_product($product_id);
+
+		$data = $this -> model->get_item($product_id);
+
+		$history = $this->get_block_history($product_id);
 		
+		$data['history'] = $history;
+
+		$this->view->generate('product_card_view.php', $data);
+
+	}
+
+	function get_block_history(int $product_id)
+	{
+		$result = [];
+
 		if (!isset($_SESSION['history'])) {
 
 			$_SESSION['history'] = [];
@@ -34,38 +58,31 @@ class Products extends Controller
 
 		// Сохранение истории просмотра.
 
+		if (!in_array($product_id, $_SESSION['history'])) {
+
+			array_push($_SESSION['history'], $product_id);
+		}
+		
 		if (count($_SESSION['history']) > 4) {
 
 			array_shift($_SESSION['history']);		
 
 		} 
-		
-		array_push($_SESSION['history'], $data["product_id"]);
-		
+
 		foreach ($_SESSION['history'] as $row) {
 
-			$data["history"][] = $this->get_data_product($row);
+			$html = $this->view->generate(
+				'product_small_card.php', 
+				$this -> model->get_item($row), 
+				$return = true
+			);
+
+			$result[] = $html;
 		}
 
-		$data['flag'] = 'card';
-
-		$this->view->generate('card_product_view.php', 'template_view.php', $data);
+		return $result;
 
 	}
-
-	function get_data_product(int $item=null)
-	{
-		require 'application/core/dbconnection.php';
-		
-		if (is_null($item)) {
-
-			return $this->model->get_list($link);	
-		} else {
-
-			return $this->model->get_item($link, $item);
-		}
-	}
-
 }
 
 ?>

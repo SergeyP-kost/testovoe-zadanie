@@ -17,6 +17,8 @@ class Feedback extends Controller
             
             $errors = $this->validate_form_feedback();
 
+            // пишем сообщение feedback в файл
+
             if (empty($errors)) {
     
                 $file_feedback = fopen("feedback.txt", 'a') or die("не удалось открыть файл");
@@ -25,16 +27,20 @@ class Feedback extends Controller
 
                 foreach($_POST as $key => $value) {
 
-                    fwrite($file_feedback, $key.': '.$value. PHP_EOL);
+                    if (!empty($value)) {
+
+                        fwrite($file_feedback, $key.': '.$value. PHP_EOL);
+                    }
+                    
                 }
 
-                if (!empty($_POST["item"]) && isset($_POST["item"])) {
+                if (!empty($_POST["product_id"]) && isset($_POST["product_id"])) {
 
-                    $result = $this->get_product_data($_POST["item"]);
+                    $result = $this->get_product_data($_POST["product_id"]);
 
                     foreach($result as $key => $value) {
 
-                    fwrite($file_feedback, $key.': '.$value. PHP_EOL);
+                        fwrite($file_feedback, $key.': '.$value. PHP_EOL);
                     }
 
                 }
@@ -43,7 +49,7 @@ class Feedback extends Controller
 
                 fclose($file_feedback);
 
-                return $this->view->generate('feedback_write.php', 'template_view.php', $_POST);
+                return $this->view->generate('feedback_write.php', $_POST);
 
             }
 
@@ -53,24 +59,19 @@ class Feedback extends Controller
         $data["name"] = $_POST["name"] ?? '';
         $data["email"] = $_POST["email"] ?? '';
         $data["message"] = $_POST["message"] ?? '';
-        $data["item"] = $_GET["product_id"] ?? ''
+        $data["product_id"] = $_GET["product_id"] ?? ''
 ;
-        $this->view->generate('feedback_view.php', 'template_view.php', $data);
+        $this->view->generate('feedback_view.php', $data);
 
     } 
 
 
-    function get_product_data(int $item): array
+    function get_product_data(int $product_id): array
     {
-        $result = [];
-        require_once 'application/core/dbconnection.php';
         require_once 'application/models/model_products.php';
         $this->model = new Model_Products();
-		$data = $this->model->get_item($link, $item);
-        foreach($data as $row) {
-            $result = array("name"=>$row["name"], "price"=>$row["price"], "name_collection"=>$row["name_collection"]);
-        }
-        return $result;
+		$data = $this->model->get_item($product_id);
+        return $data;
     }
 
 

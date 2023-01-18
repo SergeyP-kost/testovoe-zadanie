@@ -8,7 +8,7 @@
         <tr><td><?php if (isset($data["errors"]["email"])) echo $data["errors"]["email"] ?></td></tr>
         <tr><td><textarea style="border:3px double aquamarine" name="message" placeholder="Текст cooбщения"><?php echo $data["message"] ?></textarea></td></tr>
         <tr><td><?php if (isset($data["errors"]["message"])) echo $data["errors"]["message"] ?></td></tr>
-        <input type="hidden" name="item" value="<?php echo $data["item"] ?>">
+        <input type="hidden" name="product_id" value="<?php echo $data["product_id"] ?>">
         <tr><td><p><input type="submit" value="Отправить" style="margin: 0.2% 0 0 0"></p></td></tr>
         </tr>
     </table>
